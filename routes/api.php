@@ -58,7 +58,7 @@ Route::group(['middleware' => ['ability:admin,']], function() {
 
 
 
-Route::group(['middleware' => ['ability:admin,']], function()
+Route::group(['middleware' => ['ability:admin,','cors']], function()
 {
     Route::get('users', 'AuthController@index');
 });
