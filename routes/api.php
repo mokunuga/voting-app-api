@@ -49,10 +49,10 @@ Route::post('me', 'AuthController@me')->name('me');
 //Vote
 Route::group(['middleware' => ['ability:user,']], function() {
     Route::post('create-vote', 'VoteController@store');
+    Route::get('user-voted/{id}', 'VoteController@hasUserVoted');
 });
 
 Route::group(['middleware' => ['ability:admin,']], function() {
-    Route::get('user-voted/{id}', 'VoteController@hasUserVoted');
     Route::get('votes', 'VoteController@getTotalVoteCount');
 });
 
